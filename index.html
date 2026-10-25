@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' ws://localhost:* ws://127.0.0.1:*; object-src 'none'; base-uri 'self'; form-action 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self' ws://localhost:* ws://127.0.0.1:*; object-src 'none'; base-uri 'self'; form-action 'self'" />
   <meta name="theme-color" content="#0b0f0d" />
   <meta name="description" content="Lakshay Rawat is an AI engineer at Swytchcode building agent tooling, backend systems, and applied machine learning products." />
   <meta property="og:title" content="Lakshay Rawat | AI Engineer" />
@@ -22,7 +22,15 @@
       <a href="#journey">Journey</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="header-mail" href="mailto:lkomrawat@gmail.com">Available to talk</a>
+    <div class="header-actions">
+      <button class="music-toggle" id="musicToggle" type="button" aria-label="Toggle background music: Freed from Desire" aria-pressed="false" title="Freed from Desire · Click to play/pause">
+        <span class="music-bars" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </span>
+        <span class="music-tag">FIFA SOUND</span>
+      </button>
+      <a class="header-mail" href="mailto:lkomrawat@gmail.com">Available to talk</a>
+    </div>
     <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open navigation"><span class="toggle-rotor" aria-hidden="true"><span class="toggle-face">Menu <b>+</b></span><span class="toggle-face toggle-face-back">Close <b>×</b></span></span></button>
   </header>
 
@@ -126,6 +134,7 @@
   </dialog>
 
   <footer class="site-footer"><span>Lakshay Rawat</span><span>New Delhi / 2026</span></footer>
+  <audio id="bgMusic" src="audio/freed-from-desire.mp3" preload="auto" loop></audio>
   <script type="module" src="script.js"></script>
 </body>
 </html>

@@ -72,6 +72,7 @@ function openProjectDialog(trigger){
   if(project.href){modalFields.link.href=project.href;modalFields.link.removeAttribute("aria-disabled");modalFields.link.removeAttribute("tabindex")}
   else{modalFields.link.removeAttribute("href");modalFields.link.setAttribute("aria-disabled","true");modalFields.link.tabIndex=-1}
   projectModal.showModal();
+  startMusic();
 }
 document.querySelector("#modalClose").addEventListener("click",()=>projectModal.close());
 document.querySelector("#modalBack").addEventListener("click",()=>projectModal.close());
@@ -133,3 +134,86 @@ const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{i
 document.querySelectorAll(".reveal").forEach((element,index)=>{element.style.transitionDelay=`${Math.min(index%4,3)*70}ms`;revealObserver.observe(element)});
 const sectionObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)document.querySelectorAll(".site-nav a").forEach(link=>link.classList.toggle("active",link.getAttribute("href")===`#${entry.target.id}`))}),{rootMargin:"-45% 0px -45% 0px"});
 document.querySelectorAll("main>section").forEach(section=>sectionObserver.observe(section));
+
+// Football / FIFA Audio Controller (Freed from Desire)
+const bgAudio = document.querySelector("#bgMusic");
+const musicToggle = document.querySelector("#musicToggle");
+let audioStarted = false;
+let userManuallyPaused = false;
+
+function setMusicPlayingState(playing) {
+  if (!musicToggle) return;
+  musicToggle.classList.toggle("is-playing", playing);
+  musicToggle.setAttribute("aria-pressed", String(playing));
+  const tag = musicToggle.querySelector(".music-tag");
+  if (tag) tag.textContent = playing ? "PLAYING" : "FIFA SOUND";
+}
+
+function startMusic() {
+  if (!bgAudio || userManuallyPaused) return;
+  if (bgAudio.paused) {
+    bgAudio.volume = 0;
+    const playPromise = bgAudio.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          audioStarted = true;
+          setMusicPlayingState(true);
+          let vol = 0;
+          const fade = setInterval(() => {
+            vol = Math.min(vol + 0.05, 0.42);
+            bgAudio.volume = vol;
+            if (vol >= 0.42) clearInterval(fade);
+          }, 80);
+        })
+        .catch(() => {
+          // Handled gracefully if browser blocks before gesture
+        });
+    }
+  }
+}
+
+function toggleMusic() {
+  if (!bgAudio) return;
+  if (bgAudio.paused) {
+    userManuallyPaused = false;
+    bgAudio.volume = 0.42;
+    bgAudio.play().then(() => {
+      audioStarted = true;
+      setMusicPlayingState(true);
+    }).catch(console.error);
+  } else {
+    userManuallyPaused = true;
+    bgAudio.pause();
+    setMusicPlayingState(false);
+  }
+}
+
+if (musicToggle) {
+  musicToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleMusic();
+  });
+}
+
+// Start music on first interaction (click anywhere on page)
+function handleFirstInteraction() {
+  if (!audioStarted && !userManuallyPaused) {
+    startMusic();
+  }
+}
+document.addEventListener("click", handleFirstInteraction, { once: true });
+document.addEventListener("keydown", handleFirstInteraction, { once: true });
+
+// Pause music when tab is hidden, resume when tab is active
+document.addEventListener("visibilitychange", () => {
+  if (!bgAudio) return;
+  if (document.hidden) {
+    if (!bgAudio.paused) {
+      bgAudio.pause();
+      setMusicPlayingState(false);
+    }
+  } else if (audioStarted && !userManuallyPaused) {
+    bgAudio.play().then(() => setMusicPlayingState(true)).catch(() => {});
+  }
+});
