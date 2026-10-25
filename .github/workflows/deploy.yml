@@ -12,6 +12,11 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
+      CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
 
     steps:
       - name: Checkout Source Code
@@ -30,6 +35,7 @@ jobs:
         run: npm run build
 
       - name: Configure AWS Credentials
+        if: env.AWS_ACCESS_KEY_ID != '' && env.AWS_SECRET_ACCESS_KEY != ''
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -37,12 +43,11 @@ jobs:
           aws-region: us-east-1
 
       - name: Deploy to Amazon S3
+        if: env.AWS_ACCESS_KEY_ID != '' && env.S3_BUCKET_NAME != ''
         run: |
-          aws s3 sync dist/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
+          aws s3 sync dist/ s3://$S3_BUCKET_NAME --delete
 
       - name: Invalidate CloudFront Cache
-        env:
-          DIST_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-        if: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID != '' }}
+        if: env.AWS_ACCESS_KEY_ID != '' && env.CLOUDFRONT_DISTRIBUTION_ID != ''
         run: |
-          aws cloudfront create-invalidation --distribution-id "$DIST_ID" --paths "/*"
+          aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --paths "/*"
