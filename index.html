@@ -3,12 +3,128 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self' ws://localhost:* ws://127.0.0.1:*; object-src 'none'; base-uri 'self'; form-action 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com; font-src 'self'; media-src 'self' data: blob:; connect-src 'self' ws://localhost:* ws://127.0.0.1:* https://www.google-analytics.com https://analytics.google.com; object-src 'none'; base-uri 'self'; form-action 'self' mailto:;" />
   <meta name="theme-color" content="#0b0f0d" />
-  <meta name="description" content="Lakshay Rawat is an AI engineer at Swytchcode building agent tooling, backend systems, and applied machine learning products." />
-  <meta property="og:title" content="Lakshay Rawat | AI Engineer" />
-  <meta property="og:description" content="Selected projects, lessons, and the journey behind the work." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Lakshay Rawat" />
+  <meta name="description" content="Lakshay Rawat is an AI Engineer at Swytchcode building policy-controlled agent tooling, high-throughput backend systems, and applied machine learning models." />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://lakshayrawat.dev/" />
+
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lakshayrawat.dev/" />
+  <meta property="og:site_name" content="Lakshay Rawat Portfolio" />
+  <meta property="og:title" content="Lakshay Rawat | AI Engineer at Swytchcode" />
+  <meta property="og:description" content="Interactive AI engineering portfolio: policy-controlled agent systems, machine learning, and high-performance backend pipelines." />
+  <meta property="og:image" content="https://lakshayrawat.dev/og-image.webp" />
+  <meta property="og:image:width" content="1099" />
+  <meta property="og:image:height" content="1460" />
+  <meta property="og:image:alt" content="Lakshay Rawat - AI Engineer Portfolio" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://lakshayrawat.dev/" />
+  <meta name="twitter:title" content="Lakshay Rawat | AI Engineer at Swytchcode" />
+  <meta name="twitter:description" content="Selected projects, agent systems, and machine learning models built by Lakshay Rawat." />
+  <meta name="twitter:image" content="https://lakshayrawat.dev/og-image.webp" />
+
+  <!-- Google Analytics Tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+  </script>
+
+  <!-- Structured Data: Organization, Person, ProfilePage, BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://lakshayrawat.dev/#person",
+        "name": "Lakshay Rawat",
+        "url": "https://lakshayrawat.dev/",
+        "jobTitle": "AI Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Swytchcode"
+        },
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "Netaji Subhas University of Technology (NSUT)"
+        },
+        "knowsAbout": [
+          "Artificial Intelligence",
+          "Machine Learning",
+          "Agent Tooling",
+          "Go",
+          "TypeScript",
+          "Python",
+          "Fastify",
+          "Distributed Systems"
+        ],
+        "sameAs": [
+          "https://github.com/Lakshaycodes08",
+          "https://www.linkedin.com/in/lakshay-r-1b8166287/",
+          "https://huggingface.co/spaces/luxay08/eurosat-classifier"
+        ],
+        "image": "https://lakshayrawat.dev/og-image.webp"
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://lakshayrawat.dev/#webpage",
+        "url": "https://lakshayrawat.dev/",
+        "name": "Lakshay Rawat | AI Engineer at Swytchcode",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://lakshayrawat.dev/#website",
+          "name": "Lakshay Rawat Portfolio",
+          "url": "https://lakshayrawat.dev/"
+        },
+        "about": {
+          "@id": "https://lakshayrawat.dev/#person"
+        },
+        "description": "Selected AI engineering systems, backend architectures, and machine learning models built by Lakshay Rawat."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://lakshayrawat.dev/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Player Profile",
+            "item": "https://lakshayrawat.dev/#work"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Journey",
+            "item": "https://lakshayrawat.dev/#journey"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Resume",
+            "item": "https://lakshayrawat.dev/Lakshay_Rawat_Resume.pdf"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Contact",
+            "item": "https://lakshayrawat.dev/#contact"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <title>Lakshay Rawat | AI Engineer at Swytchcode</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -112,10 +228,58 @@
     </section>
 
     <section class="contact-section" id="contact" aria-labelledby="contact-title">
-      <div class="contact-copy reveal"><p class="section-kicker">Contact</p><h2 id="contact-title">Have a useful problem?</h2><p>I am open to software engineering and AI work where the details matter.</p></div>
-      <div class="contact-links reveal">
-        <a href="mailto:lkomrawat@gmail.com"><span>Email</span><strong>lkomrawat@gmail.com</strong><b aria-hidden="true">↗</b></a>
-        <a href="https://www.linkedin.com/in/lakshay-r-1b8166287/" target="_blank" rel="noreferrer"><span>LinkedIn</span><strong>lakshay-r-1b8166287</strong><b aria-hidden="true">↗</b></a>
+      <div class="contact-copy reveal">
+        <p class="section-kicker">Contact</p>
+        <h2 id="contact-title">Have a useful problem?</h2>
+        <p>I am open to software engineering, backend systems, and AI work where correctness and details matter.</p>
+        <div class="contact-direct-pills">
+          <a class="direct-pill" href="mailto:lkomrawat@gmail.com">
+            <span>Direct Email</span>
+            <strong>lkomrawat@gmail.com</strong>
+            <b aria-hidden="true">↗</b>
+          </a>
+          <a class="direct-pill" href="https://www.linkedin.com/in/lakshay-r-1b8166287/" target="_blank" rel="noreferrer">
+            <span>LinkedIn</span>
+            <strong>lakshay-r-1b8166287</strong>
+            <b aria-hidden="true">↗</b>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form-shell reveal">
+        <form class="contact-form" id="contactForm" action="mailto:lkomrawat@gmail.com" method="POST" enctype="text/plain">
+          <div class="form-title">
+            <span>Send a message</span>
+            <span class="form-badge">Open for Roles</span>
+          </div>
+          <div class="form-fields">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="formName">Your Name</label>
+                <input type="text" id="formName" name="name" required placeholder="Alex Rivera" autocomplete="name" />
+              </div>
+              <div class="form-field">
+                <label for="formEmail">Your Email</label>
+                <input type="email" id="formEmail" name="email" required placeholder="alex@company.com" autocomplete="email" />
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="formSubject">Subject</label>
+              <input type="text" id="formSubject" name="subject" required placeholder="Project collaboration / Engineering role" />
+            </div>
+            <div class="form-field">
+              <label for="formMessage">Message</label>
+              <textarea id="formMessage" name="message" rows="4" required placeholder="Tell me about what you are building, timeline, or position..."></textarea>
+            </div>
+          </div>
+          <div class="form-footer">
+            <button class="form-submit-btn" id="formSubmitBtn" type="submit">
+              <span>Send Message</span>
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </button>
+            <p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p>
+          </div>
+        </form>
       </div>
     </section>
   </main>
@@ -134,7 +298,37 @@
     </div>
   </dialog>
 
-  <footer class="site-footer"><span>Lakshay Rawat</span><span>New Delhi / 2026</span></footer>
+  <dialog class="privacy-modal" id="privacyModal" aria-labelledby="privacyTitle">
+    <div class="modal-panel privacy-panel">
+      <div class="modal-topline">
+        <span>Privacy &amp; Data Notice</span>
+        <button class="modal-close" id="privacyClose" type="button" aria-label="Close privacy notice">×</button>
+      </div>
+      <div class="modal-content">
+        <h2 id="privacyTitle">Privacy Policy</h2>
+        <p class="privacy-intro">This portfolio is designed to showcase engineering work while respecting visitor privacy:</p>
+        <ul class="privacy-list">
+          <li><strong>Zero Tracking Cookies:</strong> No third-party profiling or advertising cookies are saved on your device.</li>
+          <li><strong>Direct Contact:</strong> Messages sent via the contact form are delivered directly to Lakshay Rawat and never sold or shared with third parties.</li>
+          <li><strong>Client-Side State:</strong> Audio playback preferences and interactions are handled purely on your device in local memory.</li>
+          <li><strong>CDN Caching:</strong> Static assets are securely served via Amazon CloudFront without personal telemetry collection.</li>
+        </ul>
+      </div>
+      <div class="modal-actions">
+        <button class="modal-back" id="privacyBack" type="button">Close notice <span aria-hidden="true">←</span></button>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="footer-meta">
+      <span>Lakshay Rawat</span>
+      <span>New Delhi / 2026</span>
+    </div>
+    <div class="footer-actions">
+      <button class="privacy-trigger" id="privacyTrigger" type="button">Privacy Policy</button>
+    </div>
+  </footer>
   <audio id="bgMusic" src="audio/freed-from-desire.mp4" preload="auto" loop></audio>
   <script type="module" src="script.js"></script>
 </body>

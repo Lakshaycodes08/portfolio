@@ -149,8 +149,6 @@ npm install
 npm run dev
 ```
 
-Visit `http://localhost:5173/` in your browser.
-
 ### Production Build & Preview
 ```bash
 # Build optimized static bundle in dist/

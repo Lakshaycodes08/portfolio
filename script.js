@@ -217,3 +217,72 @@ document.addEventListener("visibilitychange", () => {
     bgAudio.play().then(() => setMusicPlayingState(true)).catch(() => {});
   }
 });
+
+// Privacy Policy Dialog
+const privacyModal = document.querySelector("#privacyModal");
+const privacyTrigger = document.querySelector("#privacyTrigger");
+const privacyClose = document.querySelector("#privacyClose");
+const privacyBack = document.querySelector("#privacyBack");
+
+if (privacyTrigger && privacyModal) {
+  privacyTrigger.addEventListener("click", () => privacyModal.showModal());
+}
+if (privacyClose && privacyModal) {
+  privacyClose.addEventListener("click", () => privacyModal.close());
+}
+if (privacyBack && privacyModal) {
+  privacyBack.addEventListener("click", () => privacyModal.close());
+}
+if (privacyModal) {
+  privacyModal.addEventListener("click", (event) => {
+    if (event.target === privacyModal) privacyModal.close();
+  });
+}
+
+// Contact Form Handler
+const contactForm = document.querySelector("#contactForm");
+const formFeedback = document.querySelector("#formFeedback");
+const formSubmitBtn = document.querySelector("#formSubmitBtn");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.querySelector("#formName").value.trim();
+    const email = document.querySelector("#formEmail").value.trim();
+    const subject = document.querySelector("#formSubject").value.trim();
+    const message = document.querySelector("#formMessage").value.trim();
+
+    if (!name || !email || !message) {
+      if (formFeedback) {
+        formFeedback.textContent = "Please fill in all required fields.";
+        formFeedback.classList.add("is-error");
+        formFeedback.hidden = false;
+      }
+      return;
+    }
+
+    if (formSubmitBtn) {
+      formSubmitBtn.disabled = true;
+      formSubmitBtn.querySelector("span").textContent = "Sending...";
+    }
+
+    // Prepare direct mailto URL
+    const mailtoBody = encodeURIComponent(`From: ${name} (${email})\n\nMessage:\n${message}`);
+    const mailtoSubject = encodeURIComponent(`[Portfolio] ${subject || "Contact from Portfolio"}`);
+    const mailtoUrl = `mailto:lkomrawat@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+
+    setTimeout(() => {
+      window.location.href = mailtoUrl;
+      if (formFeedback) {
+        formFeedback.textContent = "✓ Opening your email client to complete sending!";
+        formFeedback.classList.remove("is-error");
+        formFeedback.hidden = false;
+      }
+      contactForm.reset();
+      if (formSubmitBtn) {
+        formSubmitBtn.disabled = false;
+        formSubmitBtn.querySelector("span").textContent = "Send Message";
+      }
+    }, 400);
+  });
+}
