@@ -126,10 +126,9 @@
 
 /* Compact football-pitch journey */
 .journey-section{min-height:0;padding:clamp(4.5rem,7vw,6rem) clamp(1rem,5vw,5rem);background:#101713}
-.journey-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(17rem,25rem);column-gap:3rem;align-items:end}
-.journey-heading .section-kicker{grid-column:1}
-.journey-heading h2{grid-column:1;font-size:clamp(3.25rem,6vw,6rem)}
-.journey-heading>p:last-child{grid-column:2;grid-row:1/3;align-self:end;margin:0 0 .1rem}
+.journey-heading{display:block;width:min(100%,80rem);margin:0 auto}
+.journey-heading .section-kicker{margin-bottom:.85rem}
+.journey-heading h2,.contact-copy h2{margin:0;font-family:"Rajdhani",var(--display);font-size:clamp(3.25rem,6.8vw,5.85rem);font-weight:700;line-height:.92;letter-spacing:.04em;word-spacing:.12em;text-transform:uppercase;color:var(--ink)}
 .journey-map{height:30rem;min-height:0;margin:clamp(2rem,4vw,3rem) auto 0;overflow:hidden;background:#121b15}
 .journey-pitch{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .pitch-boundary,.pitch-midfield,.pitch-center,.pitch-box{fill:none;stroke:rgba(238,247,240,.085);stroke-width:1.5;vector-effect:non-scaling-stroke}
@@ -154,7 +153,7 @@
 .stop-three article,.stop-four article{grid-column:1}
 .stop-three p,.stop-four p{margin-left:auto}
 .stop-three h3,.stop-four h3{font-size:clamp(1.4rem,1.95vw,1.8rem)}
-@media(max-width:950px){.journey-section{padding:clamp(4rem,8vw,5rem) clamp(1rem,5vw,3rem)}.journey-heading{display:block}.journey-heading h2{font-size:clamp(3rem,8vw,5rem)}.journey-heading>p:last-child{max-width:38rem;margin:1rem 0 0}.journey-map{height:auto;min-height:0;margin-top:2rem;padding:2.5rem 1.5rem 2.5rem 1.6rem}.journey-pitch{display:none}.route{display:grid;gap:2.5rem;min-height:0;height:auto;margin:0;padding:0 0 0 1.25rem;border-left:1px solid rgba(30,215,96,.55)}.route-stop,.stop-three,.stop-four{position:relative;inset:auto;width:100%;display:grid;grid-template-columns:2.75rem minmax(0,1fr);column-gap:.8rem;text-align:left}.route-marker,.stop-three .route-marker,.stop-four .route-marker{grid-column:1;grid-row:1;width:2.75rem;height:2.75rem;margin:0 0 0 -2.63rem;box-shadow:0 0 0 .35rem #121b15,0 0 0 calc(.35rem + 1px) rgba(238,247,240,.17)}.route-marker.current{box-shadow:0 0 0 .35rem #121b15,0 0 0 calc(.35rem + 1px) rgba(30,215,96,.6)}.route-stop article,.stop-three article,.stop-four article{grid-column:2;grid-row:1}.route-stop p,.stop-three p,.stop-four p{max-width:60ch;margin:0}}
+@media(max-width:950px){.journey-section{padding:clamp(4rem,8vw,5rem) clamp(1rem,5vw,3rem)}.journey-heading{display:block}.journey-heading h2{font-size:clamp(2.75rem,8vw,4.5rem)}.journey-map{height:auto;min-height:0;margin-top:2rem;padding:2.5rem 1.5rem 2.5rem 1.6rem}.journey-pitch{display:none}.route{display:grid;gap:2.5rem;min-height:0;height:auto;margin:0;padding:0 0 0 1.25rem;border-left:1px solid rgba(30,215,96,.55)}.route-stop,.stop-three,.stop-four{position:relative;inset:auto;width:100%;display:grid;grid-template-columns:2.75rem minmax(0,1fr);column-gap:.8rem;text-align:left}.route-marker,.stop-three .route-marker,.stop-four .route-marker{grid-column:1;grid-row:1;width:2.75rem;height:2.75rem;margin:0 0 0 -2.63rem;box-shadow:0 0 0 .35rem #121b15,0 0 0 calc(.35rem + 1px) rgba(238,247,240,.17)}.route-marker.current{box-shadow:0 0 0 .35rem #121b15,0 0 0 calc(.35rem + 1px) rgba(30,215,96,.6)}.route-stop article,.stop-three article,.stop-four article{grid-column:2;grid-row:1}.route-stop p,.stop-three p,.stop-four p{max-width:60ch;margin:0}}
 @media(prefers-reduced-motion:reduce){.journey-track{animation:none}.journey-pass{display:none}}
 
 /* Repeated passing folds and the connected learning tree */
@@ -175,8 +174,7 @@
 .learning-leaves li::before{content:"";position:absolute;top:-.38rem;left:50%;width:.7rem;height:.7rem;border:2px solid var(--accent);border-radius:50%;background:#17221a;box-shadow:0 0 0 .25rem #121b15;transform:translateX(-50%)}
 @media(max-width:1100px){
   .journey-heading{display:block}
-  .journey-heading h2{font-size:clamp(3rem,8vw,5rem)}
-  .journey-heading>p:last-child{max-width:38rem;margin:1rem 0 0}
+  .journey-heading h2{font-size:clamp(2.85rem,8vw,4.85rem)}
   .journey-map{height:auto;min-height:0;padding:2.5rem 1.5rem}
   .journey-pitch{display:none}
   .route{display:grid;gap:2.25rem;height:auto;min-height:0;margin:0;padding:0 0 0 1.25rem;border-left:1px solid rgba(30,215,96,.55)}
