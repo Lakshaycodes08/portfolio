@@ -146,7 +146,7 @@ function setMusicPlayingState(playing) {
   musicToggle.classList.toggle("is-playing", playing);
   musicToggle.setAttribute("aria-pressed", String(playing));
   const tag = musicToggle.querySelector(".music-tag");
-  if (tag) tag.textContent = playing ? "PLAYING" : "FIFA SOUND";
+  if (tag) tag.textContent = playing ? "PAUSE" : "PLAY";
 }
 
 function startMusic() {
