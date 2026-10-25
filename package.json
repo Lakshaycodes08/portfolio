@@ -1,7 +1,9 @@
 {
   "name": "lakshay-portfolio",
   "version": "1.0.0",
-  "description": "Lakshay's Portfolio",
+  "description": "Personal engineering portfolio of Lakshay Rawat - AI Engineer at Swytchcode",
+  "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -9,8 +11,5 @@
   },
   "devDependencies": {
     "vite": "^5.0.0"
-  },
-  "dependencies": {
-    "three": "^0.180.0"
   }
 }

@@ -1,8 +1,8 @@
 const projects={
   eurosat:{label:"Applied machine learning",title:"Satellite land-use classifier",description:"An EfficientNet-B0 classifier trained on 27,000 EuroSAT images, reaching 95.7% accuracy with Grad-CAM views for interpretable predictions.",lesson:"A strong metric is only part of a useful ML product. Explanations, data handling, and a clear inference interface make the model easier to trust and test.",href:"https://huggingface.co/spaces/luxay08/eurosat-classifier"},
   stripe:{label:"Backend engineering",title:"Reliable payment flow",description:"A Fastify and TypeScript payment gateway using Stripe Payment Intents, verified webhooks, MySQL transactions, and idempotency keys.",lesson:"Payment correctness lives on the server. Webhook verification, transaction boundaries, and idempotency are core product behavior, not edge cases.",href:"https://github.com/Lakshaycodes08/stripe-payment-gateway"},
-  canopyguard:{label:"Work in progress",title:"CanopyGuard AI",description:"",lesson:"",href:""},
-  college2corporate:{label:"Work in progress",title:"College2Corporate",description:"",lesson:"",href:""}
+  canopyguard:{label:"Geospatial AI & Forecasting",title:"CanopyGuard AI",description:"An AI pipeline for vegetation growth forecasting and corridor risk analysis along power transmission lines using satellite imagery and predictive modeling.",lesson:"Production geospatial models require robust spatial-temporal alignment across multi-sensor passes and handling domain constraints.",href:"https://github.com/Lakshaycodes08/CanopyGuard-AI"},
+  college2corporate:{label:"Work in progress",title:"College2Corporate",description:"A placement and career readiness platform designed to streamline student profile preparation, recruiter pipelines, and placement drive tracking.",lesson:"Building tools for real student and recruiter workflows demands intuitive status tracking and reliable data management.",href:"https://github.com/Lakshaycodes08/college-2-corporate."}
 };
 
 const rows=[...document.querySelectorAll(".project-row")];
