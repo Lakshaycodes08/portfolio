@@ -6,7 +6,7 @@
 [![AWS CloudFront](https://img.shields.io/badge/CDN-Amazon_CloudFront-232F3E?style=flat&logo=amazonwebservices&logoColor=white)](https://aws.amazon.com/cloudfront/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-Interactive personal portfolio for **Lakshay Rawat**, AI Engineer at [Swytchcode](https://github.com/Lakshaycodes08), showcasing machine learning systems, backend engineering projects, and a football-themed interactive journey.
+Interactive personal portfolio for **Lakshay Rawat**, (https://github.com/Lakshaycodes08), showcasing football-themed interactive journey.
 
 ---
 
